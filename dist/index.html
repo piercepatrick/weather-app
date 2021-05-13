@@ -8,7 +8,60 @@
     <title>Weather App</title>
 </head>
 <body>
-    <h1>Weather!</h1>    
+
+    <div id="background-wrap">
+        <div class="x1">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x2">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x3">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x4">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x5">
+            <div class="cloud"></div>
+        </div>
+    </div>
+    <div class='container'>
+        <h1>Enter a City to Get the Weather</h1>    
+
+        <form>
+            <input type='text' class='search-text' placeholder="Enter City">
+            <button class='search-button' type='button'>Submit</button>
+        </form>
+        <h1 id='error'></h1>
+        <div class='weather-container'>
+            <h1 id='city-name'></h1>
+            <div class='row'>
+                <h2 id='temp'></h2>
+                <h2 id='tempFeelsLike'></h2>
+            </div>
+            <div class='row'>
+                <h2 id='weather'></h2>
+                <h2 id='weatherDescription'></h2>
+            </div>
+            <div class='row'>
+                <h2 id='tempHigh'></h2>
+                <h2 id='tempLow'></h2>
+            </div>
+            <div class='row'>
+                <h2 id='humidity'></h2>
+                <h2 id='pressure'></h2>
+            </div>
+            <div class='row'>
+                <h2 id='windSpeed'></h2>
+               
+            </div>
+        </div>
+    </div>
 
     <script src='main.js'></script>
 </body>
