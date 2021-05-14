@@ -23,6 +23,7 @@ async function callAPI(e) {
     try {
         const response = await fetch(`//api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`, {mode: 'cors'})
         const data = await response.json()
+        console.log(data)
         const weatherData = processData(data)
         errorElem.innerHTML = ''
         displayWeather(weatherData)
@@ -36,20 +37,24 @@ function processData(apiData) {
     const weatherData = {name: apiData.name, temp: apiData.main.temp, tempFeelsLike: apiData.main.feels_like, humidity: apiData.main.humidity, tempHigh: apiData.main.temp_max,
                         tempLow: apiData.main.temp_min, weather: apiData.weather[0].main, weatherDescription: apiData.weather[0].description, pressure: apiData.main.pressure,
                         windSpeed: apiData.wind.speed}
-    console.log(weatherData)
+    
     return weatherData
 }
 
 function displayWeather(weatherData) {
     cityName.innerHTML = weatherData.name
-    tempElem.innerHTML = weatherData.temp
-    tempFeelsLikeElem.innerHTML = weatherData.tempFeelsLike
+    tempElem.innerHTML = `${convertToFahrenheit(weatherData.temp)}°`
+    tempFeelsLikeElem.innerHTML = `Feels Like: ${convertToFahrenheit(weatherData.tempFeelsLike)}°`
     weatherElem.innerHTML =weatherData.weather
-    weatherDescElem.innerHTML =weatherData.weatherDescription
-    tempHighElem.innerHTML = weatherData.tempHigh
-    tempLowElem.innerHTML = weatherData.tempLow
-    humidityElem.innerHTML = weatherData.humidity
-    pressureElem.innerHTML = weatherData.pressure
-    windSpeedElem.innerHTML =weatherData.windSpeed
+    tempHighElem.innerHTML = `High: ${convertToFahrenheit(weatherData.tempHigh)}°`
+    tempLowElem.innerHTML = `Low: ${convertToFahrenheit(weatherData.tempLow)}°`
+    humidityElem.innerHTML = `Humidity: ${weatherData.humidity}%`
+    pressureElem.innerHTML = `Pressure: ${weatherData.pressure} hPa`
+    windSpeedElem.innerHTML = `Wind Speed: ${weatherData.windSpeed} km/hr`
 }
 
+function convertToFahrenheit(temp) {
+    temp = ((temp - 273.15)*1.8)+32
+    temp = Math.round(temp)
+    return temp
+}
