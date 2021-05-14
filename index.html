@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='styles.css'>
     <title>Weather App</title>
+
 </head>
 <body>
 
@@ -33,32 +34,22 @@
     <div class='container'>
         <h1>Enter a City to Get the Weather</h1>    
 
-        <form>
+        <form onSubmit="return false;">
             <input type='text' class='search-text' placeholder="Enter City">
             <button class='search-button' type='button'>Submit</button>
         </form>
         <h1 id='error'></h1>
         <div class='weather-container'>
-            <h1 id='city-name'></h1>
-            <div class='row'>
-                <h2 id='temp'></h2>
-                <h2 id='tempFeelsLike'></h2>
-            </div>
-            <div class='row'>
-                <h2 id='weather'></h2>
-                <h2 id='weatherDescription'></h2>
-            </div>
-            <div class='row'>
-                <h2 id='tempHigh'></h2>
-                <h2 id='tempLow'></h2>
-            </div>
-            <div class='row'>
-                <h2 id='humidity'></h2>
-                <h2 id='pressure'></h2>
-            </div>
-            <div class='row'>
-                <h2 id='windSpeed'></h2>
-               
+            <h1 id='city-name'></h1>     
+            <h2 id='temp'></h2>
+            <h2 id='tempFeelsLike'></h2>
+            <h2 id='weather'></h2>
+   <!--     <h2 id='weatherDescription'></h2> -->   
+            <h2 id='tempHigh'></h2>
+            <h2 id='tempLow'></h2> 
+            <h2 id='humidity'></h2>
+            <h2 id='pressure'></h2>        
+            <h2 id='windSpeed'></h2>
             </div>
         </div>
     </div>
